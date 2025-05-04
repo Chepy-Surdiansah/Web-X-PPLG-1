@@ -1,0 +1,537 @@
+* { /* Untuk tampilan layar dan navigasi */
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body .no-scroll .main-home { /* */
+  background-color: #f0f0f0;
+  font-family: Montserrat;
+  overflow: hidden;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.header {
+  
+}
+nav { /* Iphone 8+ */
+  background: #0082a6;
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+label.logo {
+  color: white;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+}
+nav ul {
+  float: right;
+  margin-right: 20px;
+}
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a {
+  color: white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 10px 60px 30px;
+  text-align: center;
+  
+}
+a.active,a;hover {
+  background: #1b9bff;
+  transition: .5s;
+}
+.checkbtn {
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+  text-align: center;
+}
+#check {
+  display: none;
+  text-align: center;
+}
+
+@media (max-width: 952px) {
+  label.logo {
+    font-size: 30px;
+    padding-left: 50px;
+  }
+  nav ul li a {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+@media (max-width: 858px) {
+  .checkbtn {
+    display: block;
+    text-align: center;
+  }
+
+ nav ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 0;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+    z-index: 999;
+    flex-direction: column;
+  }
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a {
+    font-size: 20px;
+  }
+  .nav:hover,
+  .nav.active {
+    background: #0082a6;
+  }
+  #check:checked ~ ul {
+    left: 0;
+    text-align: center;
+  }
+}
+.nav {
+  text-align: center;
+}
+/* tombol close */
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font-size: 30px;
+  list-style: none;
+}
+
+.close-btn label {
+  color: white;
+  cursor: pointer;
+}
+
+/* tombol close responsive */
+/* Sembunyikan tombol silang di layar >= 859px */
+@media (min-width: 859px) {
+  .close-btn {
+    display: none;
+  }
+}
+
+/* Iphone X */ <!-- Iphone X -->
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) { }
+    and (orientation: landscape)
+    and (orientation: portrait)
+
+/* Iphone 8 */ <!-- Iphone 8 -->
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 667px) 
+    and (-webkit-device-pixel-ratio : 2) { }
+    and (orientation: landscape)
+    and (orientation: portrait)
+    
+/* Iphone 8+ */ <!-- Iphone 8+ -->
+@media only screen and (min-device-width: 414px)
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    and (device-width : 414px) 
+    and (device-height : 736px) 
+    and (-webkit-device-pixel-ratio : 3) { }
+    and (orientation: landscape)
+    and (orientation: portrait)
+
+/* Ipad */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .checkbtn {
+    display: block;
+  }
+  nav ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 0;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a {
+    font-size: 20px;
+  }
+  #check:checked ~ ul {
+    left: 0;
+    display: none;
+  }
+}
+
+/* Gambar responsive */
+.main-home { /* Tampilan Awal */
+    position: relative;
+    width: 100%;
+    height: 750px; /* atau gunakan min-height untuk fleksibilitas */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(60%);
+}
+
+.home-content {
+    position: relative; /* Ubah dari absolute ke relative */
+    text-align: center;
+    color: white;
+    z-index: 2;
+    width: 80%; /* Atur lebar yang sesuai */
+    max-width: 1200px; /* Batas maksimum lebar */
+    padding: 20px;
+}
+
+.home-content h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: clamp(40px, 8vw, 80px); /* Responsive font size */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Tambahkan shadow untuk keterbacaan */
+    text-align: center;
+}
+
+.home-content h3 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: clamp(18px, 3vw, 25px);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.home-content h4 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: clamp(14px, 2vw, 18px);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+.start-btn button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
+}
+.start-btn button a {
+  text-decoration: none;
+  color: inherit;
+}
+.start-btn button:hover {
+    background-color: #0082a6; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 100px;
+}
+.card {
+  width: 325px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  margin: 20px;
+}
+/* Gambar highlight Destinasi Populer responsif */
+.highlight-logo img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+/* Deskripsi highlight */
+.highlight-description {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.highlight-description p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+  .highlight-description p {
+    font-size: 19px;
+  }
+}
+.card img {
+  width: 100%;
+  height: auto;
+}
+.card img a {
+  text-decoration: none;
+  color: inherit;
+}
+.card-content {
+  padding: 16px;
+}
+.card-content h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+.card-content p {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.3;
+}
+/* tulisan link */
+.card-content a {
+  text-decoration: none;
+  color: inherit;
+}
+/* Lihat Semua */
+.button-all {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.button-all .btn {
+  padding: 12px 24px;
+  background-color: rgba(0,0,0,0.2);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 16px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  max-width: 90%;
+  width: auto;
+}
+
+.button-all .btn:hover {
+  background-color: #2c3e50;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+  .button-all .btn {
+    font-size: 14px;
+    padding: 10px 20px;
+    width: 80%;
+  }
+}
+
+/* Footer */
+/* Importing Google font - Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.footer {
+  position: absolute;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  background: #0082a6;
+  border-radius: 6px;
+}
+
+.footer .footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 3.5rem;
+  padding: 60px;
+}
+
+.footer-row .footer-col h4 {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.footer-col .links {
+  margin-top: 20px;
+}
+
+.footer-col .links li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.footer-col .links li a {
+  text-decoration: none;
+  color: #bfbfbf;
+}
+
+.footer-col .links li a:hover {
+  color: #fff;
+}
+
+.footer-col p {
+  margin: 20px 0;
+  color: #bfbfbf;
+  max-width: 300px;
+}
+
+.footer-col form {
+  display: flex;
+  gap: 5px;
+}
+
+.footer-col input {
+  height: 40px;
+  border-radius: 6px;
+  background: none;
+  width: 100%;
+  outline: none;
+  border: 1px solid #7489C6 ;
+  caret-color: #fff;
+  color: #fff;
+  padding-left: 10px;
+}
+
+.footer-col input::placeholder {
+  color: #ccc;
+}
+
+ .footer-col form button {
+  background: #fff;
+  outline: none;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.footer-col form button:hover {
+  background: #cecccc;
+}
+
+.footer-col .icons {
+  display: flex;
+  margin-top: 30px;
+  gap: 30px;
+  cursor: pointer;
+}
+
+.footer-col .icons i {
+  color: #afb6c7;
+}
+
+.footer-col .icons i:hover  {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .footer .footer-row {
+    padding: 20px;
+    gap: 1rem;
+  }
+
+  .footer-col form {
+    display: block;
+  }
+
+  .footer-col form :where(input, button) {
+    width: 100%;
+  }
+
+  .footer-col form button {
+    margin: 10px 0 0 0;
+  }
+}
+
+/* KULINER */
+.scontainer {
+  
+}
+.scontainer h3 {
+  width: 100%;
+  text-align: justify;
+}
+
+.restoran ul li a{
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+  text-align: left;
+  transform: translate(-20%, -20%);
+  padding-left: 40px;
+  margin-left: 25px;
+}
+.restoran h2 {
+  text-align: center;
+}
+.restoran h3 {
+  text-align: center;
+}
